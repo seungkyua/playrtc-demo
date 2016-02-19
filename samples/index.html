@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to PlayRTC!</title>
+	<link rel="stylesheet" href="/css/reset.css"></link>
+	<link rel="stylesheet" href="/css/style.css"></link>
+
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
+</head>
+<body>
+<div class="login">
+	<div class="loginbox">
+		<form class="loginForm" action="/" method="post">
+			<h1>
+				<em>로그인</em>
+			</h1>
+			<fieldset>
+				<span>아이디 : </span><input type="text" id="userName" class="userName" name="userName" placeholder="사용자 아이디를 입력하세요." value="" autocomplete="off" />
+				<span>비밀번호 : </span><input type="password" id="userPwd" class="userPwd" name="userPwd" placeholder="사용자 비밀번호를 입력하세요." value="" autocomplete="off" />
+			</fieldset>			
+			<button id="loginBtn">로그인</button>
+			<a href="/join" id="joinBtn">회원가입</a>
+		</form>
+		<div class="warning">{{ error }}</div>
+	</div>
+</div>
+
+</body>
+</html>

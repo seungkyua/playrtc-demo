@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to PlayRTC!</title>
+	<link rel="stylesheet" href="/css/reset.css"></link>
+	<link rel="stylesheet" href="/css/style.css"></link>
+
+  <style>
+    .local-video {
+      width: 80px;
+      height: 60px;
+      z-index: 10;
+      position: relative;
+      top: 50px;
+      right: 30px;
+    }
+
+    .remote-video {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 320px;
+      height: 240px;
+    }
+  </style>
+
+	<script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="https://www.playrtc.com/sdk/js/playrtc.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+
+</head>
+<body>
+<div id="first">
+	<div class="channelCreatebox useName useUser">
+		<div class="loginMessage">
+			<span>{{ userNickName }}</span> 님이 입장하셨습니다.
+		</div>
+		<form class="channelForm">
+			<h1>
+				<em>채널 만들기</em>
+			</h1>
+			<fieldset>
+				<span>채널이름 : </span><input type="text" id="channelName" placeholder="채널 이름을 입력하세요." value="" autocomplete="off" />
+			</fieldset>
+			<fieldset>
+				<span class="id-label">아이디 : </span><input type="text" id="userId" class="userId" placeholder="사용자 아이디" value="{{ userName }}" autocomplete="off" readonly />
+				<span>사용자이름 : </span><input type="text" id="userName" class="userName" placeholder="사용자 이름" value="{{ userNickName }}" autocomplete="off" readonly />
+			</fieldset>
+			<button id="enterchannel">채널 입장</button>
+		</form>
+		<br/><br/>
+		<div class="channelListbox">
+			<h1>
+				<em>채널을 선택하세요..</em>
+				<button id="channels">목록새로고침</button>
+			</h1>
+			<ul id="channelList">
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="main">
+	<button id="channelLeave">채널나가기</button>
+	<div class="another">
+        <video class="local-video" id="callerLocalVideo"></video>        
+        <video class="remote-video" id="callerRemoteVideo"></video>
+	</div>
+</div>
+
+<form action="/logout" method="get" class="logoutForm">
+	<button id="logout">로그아웃</button>
+</form>
+
+</body>
+</html>
