@@ -2,14 +2,15 @@
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , UserMgr = require("./service/users").userMgr;
+  , UserMgr = require("./service/users").userMgr
+  , port = process.env.PORT || 8888;
 
 
 
 var app = express();
 
 // all environments
-app.set('port', 8080);
+app.set('port', port);
 app.set('views', __dirname + '/samples');
 app.set('view engine', 'html');
 app.set('layout', 'layout');
