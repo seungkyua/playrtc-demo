@@ -1,10 +1,17 @@
 ﻿var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , https = require('https')
   , path = require('path')
+  , fs = require('fs')
   , UserMgr = require("./service/users").userMgr;
 
+var options = {
+   key: fs.readFileSync('key.pem'),
+   cert: fs.readFileSync('cert.pem')
+};
 
+var port2 = 64443;
 
 var app = express();
 
@@ -84,3 +91,6 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 });
 
 
+https.createServer( options, app ).listen(port2, function(){
+      console.log("Https server listening on port " + port2);
+});
